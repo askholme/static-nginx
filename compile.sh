@@ -101,5 +101,6 @@ cat << EOF > $CWD/target/bin/README
 Statically linkedn nginx binary for production use.
 This is compiled with modsecurity inside it. 
 See http://github.com/askholme/static-nginx for more
+EOF
 cd $CWD/target/bin/
 tar czf $CWD/nginx.tar.gz .

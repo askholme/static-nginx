@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/askholme/static-nginx.svg?branch=master)](https://travis-ci.org/askholme/static-nginx)
+
 # Compile a statically linked nginx inside docker
 
 Scripts for compiling a production ready statically linked nginx using a docker container.
