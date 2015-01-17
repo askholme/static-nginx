@@ -1,0 +1,19 @@
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y git
+script: 
+  - "./compile.sh"
+env:
+  global:
+    - NGINX_VERSION=1.7.9
+    - PCRE_VERSION=8.36
+    - OPENSSL_VERSION=1.0.1j
+    - ZLIB_VERSION=1.2.8
+    - BINTRAY_REPO=static-software
+    - PCK_NAME=nginx
+    - PCK_VERSION=2015-01-15
+    - PCK_DESCRIPTION=A statically compiled nginx
+    - PCK_URL=http://github.com/askholme/static-nginx
+    - PCK_LABELS="nginx"
+after_success:
+  - "./upload.sh"
