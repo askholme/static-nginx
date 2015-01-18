@@ -39,17 +39,18 @@ if [[ ! -d "${ZLIB_TARBALL%.tar.gz}" ]]; then
   tar --no-same-owner --mtime=.timestamp -xvzf "${ZLIB_TARBALL}" && rm -rf "${ZLIB_TARBALL}"
   find "${ZLIB_TARBALL%.tar.gz}" -print0 |xargs -0 touch --date="$DATE"
 fi
+
 git clone https://github.com/SpiderLabs/ModSecurity.git $CWD/mod_security
 cd $CWD/mod_security
 ./autogen.sh
 ./configure --enable-standalone-module
 make
 
- 
+mkdir -p $CWD/target/bin/ 
 cd $CWD/nginx-${NGINX_VERSION}
 ./configure \
   --with-cpu-opt=generic \
-  --prefix=/target/bin \
+  --prefix=$CWD/target/bin \
   --with-pcre=../pcre-${PCRE_VERSION} \
   --sbin-path=. \
   --pid-path=./nginx.pid \
@@ -90,7 +91,7 @@ sed -i "/CFLAGS/s/ \-O //g" objs/Makefile
 #sed -i -e "s/\#define NGX_SSL_PASSWORD_BUFFER_SIZE  4096/\#define NGX_SSL_PASSWORD_BUFFER_SIZE  16384/g" src/event/ngx_event_openssl.c
 make && make install
 
-mkdir -p $CWD/target/bin/
+
 cp LICENSE $CWD/target/bin
 cp $CWD/nginx-${NGINX_VERSION}/LICENSE $CWD/target/bin/license-nginx
 cp $CWD/mod_security/LICENSE $CWD/target/bin/license-modsecurity
