@@ -11,8 +11,5 @@ env:
     - ZLIB_VERSION=1.2.8
     - BINTRAY_REPO=static-software
     - PCK_NAME=nginx
-    - PCK_DESCRIPTION=A statically compiled nginx
-    - PCK_URL=http://github.com/askholme/static-nginx
-    - PCK_LABELS="nginx"
 after_success:
-  - "curl -T nginx.tar.gz -X PUT -u$BINTRAY_USER:$BINTRAY_API_KEY -H Content-Type:application/json -H Accept:application/json https://api.bintray.com/content/$BINTRAY_USER/$PCK_NAME/$TRAVIS_JOB_NUMBER/$TRAVIS_JOB_NUMBER/nginx.tar.gz?publish=1"
+  - "curl -T $TRAVIS_BUILD_DIR/nginx.tar.gz -X PUT -u$BINTRAY_USER:$BINTRAY_API_KEY https://api.bintray.com/content/$BINTRAY_USER/$PCK_NAME/$TRAVIS_JOB_NUMBER/$TRAVIS_JOB_NUMBER/nginx.tar.gz?publish=1"

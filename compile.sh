@@ -104,4 +104,4 @@ This is compiled with modsecurity inside it.
 See http://github.com/askholme/static-nginx for more
 EOF
 cd $CWD/target/bin/
-tar czf $CWD/nginx.tar.gz .
+tar czf $TRAVIS_BUILD_DIR/nginx.tar.gz .
