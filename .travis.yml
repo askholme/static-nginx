@@ -12,4 +12,4 @@ env:
     - BINTRAY_REPO=static-software
     - PCK_NAME=nginx
 after_success:
-  - "curl -T $TRAVIS_BUILD_DIR/nginx.tar.gz -X PUT -u$BINTRAY_USER:$BINTRAY_API_KEY https://api.bintray.com/content/$BINTRAY_USER/$PCK_NAME/$TRAVIS_JOB_NUMBER/$TRAVIS_JOB_NUMBER/nginx.tar.gz?publish=1"
+  - "curl -T $TRAVIS_BUILD_DIR/nginx.tar.gz -X PUT -u$BINTRAY_USER:$BINTRAY_API_KEY https://api.bintray.com/content/$BINTRAY_USER/$BINTRAY_REPO/$PCK_NAME/$TRAVIS_JOB_NUMBER/$TRAVIS_JOB_NUMBER/nginx.tar.gz?publish=1"
