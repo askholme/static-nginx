@@ -7,9 +7,10 @@ env:
   global:
     - NGINX_VERSION=1.7.9
     - PCRE_VERSION=8.36
-    - OPENSSL_VERSION=1.0.1j
+    - OPENSSL_VERSION=1.0.1l
     - ZLIB_VERSION=1.2.8
     - BINTRAY_REPO=static-software
     - PCK_NAME=nginx
 after_success:
+  - "curl -X POST -u$BINTRAY_USER:$BINTRAY_API_KEY -d \"{\"name\": \"$TRAVIS_JOB_NUMBER\", \"desc\":\"NGINX $NGINX_VERSION,PCRE $PCRE_VERSION, OpenSSL $OPENSSL_VERSION, ZLIB $ZLIB_VERSION \" }\" https://api.bintray.com/packages/$BINTRAY_USER/$BINTRAY_REPO/$PCK_NAME/versions"
   - "curl -T $TRAVIS_BUILD_DIR/nginx.tar.gz -X PUT -u$BINTRAY_USER:$BINTRAY_API_KEY https://api.bintray.com/content/$BINTRAY_USER/$BINTRAY_REPO/$PCK_NAME/$TRAVIS_JOB_NUMBER/$TRAVIS_JOB_NUMBER/nginx.tar.gz?publish=1"
