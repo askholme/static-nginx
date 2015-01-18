@@ -97,7 +97,7 @@ cp $CWD/nginx-${NGINX_VERSION}/LICENSE $CWD/target/bin/license-nginx
 cp $CWD/mod_security/LICENSE $CWD/target/bin/license-modsecurity
 cp $CWD/zlib-${ZLIB_VERSION}/README $CWD/target/bin/license-zlib
 cp $CWD/openssl-${OPENSSL_VERSION}/LICENSE $CWD/target/bin/license-openssl
-cp $CWD/pcre-${PCRE_VERSION}/LICENSE $CWD/target/bin/license-pcre
+cp $CWD/pcre-${PCRE_VERSION}/LICENCE $CWD/target/bin/license-pcre
 cat << EOF > $CWD/target/bin/README
 Statically linkedn nginx binary for production use.
 This is compiled with modsecurity inside it. 
