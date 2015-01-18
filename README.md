@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/askholme/static-nginx.svg?branch=master)](https://travis-ci.org/askholme/static-nginx)
-
+ 
+[ ![Download](https://api.bintray.com/packages/askholme/static-software/nginx/images/download.svg) ](https://bintray.com/askholme/static-software/nginx/_latestVersion)
 # Compile a statically linked nginx inside docker
 
 Scripts for compiling a production ready statically linked nginx using a docker container.

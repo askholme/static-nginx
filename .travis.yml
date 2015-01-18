@@ -15,4 +15,4 @@ env:
     - PCK_URL=http://github.com/askholme/static-nginx
     - PCK_LABELS="nginx"
 after_success:
-  - "curl -T nginx.tar.gz -u$BINTRAY_USER:$BINTRAY_API_KEY -H Content-Type:application/json -H Accept:application/json https://api.bintray.com/content/$BINTRAY_USER/$PCK_NAME/$TRAVIS_JOB_NUMBER/$TRAVIS_JOB_NUMBER/nginx.tar.gz"
+  - "curl -T nginx.tar.gz -X PUT -u$BINTRAY_USER:$BINTRAY_API_KEY -H Content-Type:application/json -H Accept:application/json https://api.bintray.com/content/$BINTRAY_USER/$PCK_NAME/$TRAVIS_JOB_NUMBER/$TRAVIS_JOB_NUMBER/nginx.tar.gz?publish=1"

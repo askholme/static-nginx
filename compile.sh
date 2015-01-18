@@ -90,8 +90,8 @@ sed -i "/CFLAGS/s/ \-O //g" objs/Makefile
 #sed -i -e "s/\#define NGX_SSL_PASSWORD_BUFFER_SIZE  4096/\#define NGX_SSL_PASSWORD_BUFFER_SIZE  16384/g" src/event/ngx_event_openssl.c
 make && make install
 
-mkdir $CWD/target/bin/
-cp LICENSE /target/bin
+mkdir -p $CWD/target/bin/
+cp LICENSE $CWD/target/bin
 cp $CWD/nginx-${NGINX_VERSION}/LICENSE $CWD/target/bin/license-nginx
 cp $CWD/mod_security/LICENSE $CWD/target/bin/license-modsecurity
 cp $CWD/zlib-${ZLIB_VERSION}/README $CWD/target/bin/license-zlib
