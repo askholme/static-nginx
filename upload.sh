@@ -31,7 +31,8 @@ function create_package() {
     \"name\": \"${PCK_NAME}\",
     \"desc\": \"${PCK_DESCRIPTION}\",
     \"desc_url\": \"${PCK_URL}\",
-    \"labels\": [${PCK_LABELS}]
+    \"labels\": [${PCK_LABELS}],
+    \"licenses\": [\"GPL-3.0\"]
     }"
   fi
   
@@ -49,7 +50,7 @@ function deploy() {
 
 function upload_content() {
   echo "Uploading ${FILE}..."
-  uploaded=` [ $(${CURL} --write-out %{http_code} --silent --output /dev/null -T /${FILE} -H X-Bintray-Package:${PCK_NAME} -H X-Bintray-Version:${PCK_VERSION} ${API}/content/${BINTRAY_USER}/${BINTRAY_REPO}/${FILE}) -eq 201 ] `
+  uploaded=` [ $(${CURL} --write-out %{http_code} --silent --output /dev/null -T ${FILE} -H X-Bintray-Package:${PCK_NAME} -H X-Bintray-Version:${PCK_VERSION} ${API}/content/${BINTRAY_USER}/${BINTRAY_REPO}/${FILE}) -eq 201 ] `
   echo "File File uploaded? y:1/N:0 ${package_exists}"
   return ${uploaded}
 }
