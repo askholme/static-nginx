@@ -57,7 +57,7 @@ cd $CWD/nginx-${NGINX_VERSION}
   --conf-path=./nginx.conf \
   --error-log-path=./error.log \
   --http-log-path=./access.log \
-  --with-openssl-opt=no-krb5 \
+  --with-openssl-opt="no-krb5 no-ssl2 no-shared"\
   --with-ld-opt="-static" \
   --with-openssl=../openssl-${OPENSSL_VERSION} \
   --with-http_ssl_module \
