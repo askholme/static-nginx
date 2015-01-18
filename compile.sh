@@ -86,8 +86,8 @@ cd $CWD/nginx-${NGINX_VERSION}
   --without-mail_smtp_module
   --add-module=$CWD/mod_security/nginx/modsecurity
 sed -i "/CFLAGS/s/ \-O //g" objs/Makefile
-#patch the buffer size
-sed -i -e "s/\#define NGX_SSL_PASSWORD_BUFFER_SIZE  4096/\#define NGX_SSL_PASSWORD_BUFFER_SIZE  16384/g" src/event/ngx_event_openssl.c
+#patch the buffer size - not needed for 1.5.9+
+#sed -i -e "s/\#define NGX_SSL_PASSWORD_BUFFER_SIZE  4096/\#define NGX_SSL_PASSWORD_BUFFER_SIZE  16384/g" src/event/ngx_event_openssl.c
 make && make install
 
 mkdir $CWD/target/bin/
